@@ -39,10 +39,10 @@ def enviar():
     # Recibir datos del formulario HTML
     nombre = request.form.get('nombre')
     apellido = request.form.get('apellido')
-    direccion = request.form.get('direccion')
     telefono = request.form.get('telefono')
     correo = request.form.get('correo')
     mensaje = request.form.get('mensaje')
+    direccion = request.form.get('direccion')
 
     conec = conectar()
     conexion = conec.cursor()
@@ -53,7 +53,7 @@ def enviar():
         conexion.execute(
 
         """
-        INSERT INTO user_info (nombre, apellido, direccion, telefono, correo, mensaje)
+        INSERT INTO User_info (Nombre, Apellido, Direccion, Telefono, Correo, Mensaje)
         VALUES (%s, %s, %s, %s, %s, %s)
         """,
         (nombre, apellido, direccion, telefono, correo, mensaje)
